@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import LearnTeachCoding from '../assets/Learn-Teach-Coding.svg';
 
 function AboutPage(props) {
@@ -57,11 +57,10 @@ function AboutPage(props) {
       <section className="mainSection">
         <div className="mainSectionContent flex flex-col  md:justify-around ">
           <div className="flex flex-col justify-around items-center md:flex-row">
-            <Img
+            <GatsbyImage
+              image={props.data.avatarSethAlexanderImage.childImageSharp.gatsbyImageData}
               className="rounded-full w-64 m-3 mb-8 md:mb-3 md:mr-12 md:w-1/4 border-2 border-FCCgray-100"
-              fluid={props.data.avatarSethAlexanderImage.childImageSharp.fluid}
-              alt="Profile picture of Seth Alexander"
-            />
+              alt="Profile picture of Seth Alexander" />
             <p className="text-xl mb-12 md:w-3/4">
               <b>Seth Alexander</b>, freeCodeCamp Nashville Organizer, Software
               Engineer, Hard Problem Solver, TypeScript Lover, freeCodeCamp
@@ -71,11 +70,10 @@ function AboutPage(props) {
             </p>
           </div>
           <div className="p-4 flex flex-col  justify-around items-center md:flex-row">
-            <Img
+            <GatsbyImage
+              image={props.data.avatarAlexThomasImage.childImageSharp.gatsbyImageData}
               className="rounded-full w-64 m-3 mb-8 md:mb-3 md:mr-12 md:w-1/4 border-2 border-FCCgray-100"
-              fluid={props.data.avatarAlexThomasImage.childImageSharp.fluid}
-              alt="Profile picture of Alex Thomas"
-            />
+              alt="Profile picture of Alex Thomas" />
             <p className="text-xl mb-12 md:w-3/4">
               <b>Alex Thomas</b>, freeCodeCamp Nashville Organizer, Full-Stack
               JavaScript developer with experience building and deploying web
@@ -91,23 +89,18 @@ function AboutPage(props) {
   );
 }
 
-export const query = graphql`
-  query {
-    avatarSethAlexanderImage: file(relativePath: { eq: "Seth-Alexander.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 260, quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    avatarAlexThomasImage: file(relativePath: { eq: "Alex-Thomas.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 260, quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+export const query = graphql`{
+  avatarSethAlexanderImage: file(relativePath: {eq: "Seth-Alexander.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 260, quality: 100, layout: CONSTRAINED)
     }
   }
+  avatarAlexThomasImage: file(relativePath: {eq: "Alex-Thomas.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 260, quality: 100, layout: CONSTRAINED)
+    }
+  }
+}
 `;
 
 export default AboutPage;
