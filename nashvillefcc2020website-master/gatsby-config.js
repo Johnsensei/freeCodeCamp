@@ -11,6 +11,9 @@ module.exports = {
   plugins: [
     `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     // TODO: figure this out
     // https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/?=
     {
