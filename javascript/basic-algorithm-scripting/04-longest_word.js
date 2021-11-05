@@ -1,6 +1,8 @@
 //Return the length of the longest word in the provided sentence.
 //Your response should be a number.
 
+//Can be improved.
+
 function findLongestWordLength(str) {
   let letterCount = 0;
   let currentWord = "";

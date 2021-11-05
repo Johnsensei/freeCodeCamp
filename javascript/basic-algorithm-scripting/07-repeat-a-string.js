@@ -1,3 +1,5 @@
+//Can be improved.
+
 function repeatStringNumTimes(str, num) {
     let newStr = "";
     
