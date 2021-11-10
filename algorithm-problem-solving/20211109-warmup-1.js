@@ -1,13 +1,7 @@
 function sortByLength(arr){
-    // console.log(arr);
-    // arr.sort(function(a, b) {
-    //   console.log("A: " + a);
-    //   console.log("B: " + b);
-    //   return b.length - a.length || a.localeCompare(b);
-    // })
   
-    arr.sort((a, b) => a.length - b.length)
-    return(JSON.stringify(arr, null, '\t'));
+    return arr.sort((a, b) => a.length - b.length);
+    
   }
   
   
